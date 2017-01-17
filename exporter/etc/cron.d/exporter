@@ -1,0 +1,2 @@
+0 9 * * * root php /code/exporter/bin/pdo-git MarketflowAcc Marketflow..TITRE
+1 9 * * * root php /code/exporter/bin/pdo-git MarketflowAccDB MarketflowDB..TITRE

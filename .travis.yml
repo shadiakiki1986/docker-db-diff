@@ -1,0 +1,19 @@
+language: php
+install: composer install
+script: composer test
+branches:
+  only:
+    - master
+
+services:
+- mysql
+
+before_script:
+- mysql -e "create database if not exists $MYSQL_DATABASE"
+- mysql $MYSQL_DATABASE < tests/create.sql
+
+env:
+  global:
+  - MYSQL_USER=root
+  - MYSQL_PASSWORD=""
+  - MYSQL_DATABASE=movies

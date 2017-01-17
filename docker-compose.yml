@@ -1,0 +1,19 @@
+version: '2'
+services:
+  grapi:
+    build:
+      context: grapi
+      dockerfile: Dockerfile
+    ports:
+    - "8082:8081"
+    environment:
+    - LOGLEVEL=info
+
+  exporter:
+    build:
+      context: exporter
+      dockerfile: Dockerfile
+    depends_on:
+    - git
+    environment:
+    - DBDIFF_GRAPI_HOST=http://git:8082

@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    image: mysql:8
+    ports:
+    - "3306:3306"
+    environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    - MYSQL_DATABASE=mf
+    - MYSQL_USER=user
+    - MYSQL_PASSWORD=password
+    volumes:
+    - $PWD/db/initdb.d:/docker-entrypoint-initdb.d
+
+  exporter:
+    depends_on:
+    - db
+    environment:
+    - DBDIFF_GRAPI_HOST=http://localhost:8082

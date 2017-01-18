@@ -3,6 +3,13 @@ RUN echo "Acquire::http::Proxy \"http://pmo.ffaprivatebank.com:3142\";" | tee /e
 RUN  apt-get -qq    update \
   && DEBIAN_FRONTEND=noninteractive \
        apt-get -qq -y install cron
+
+# copied from ffa-zkteco-mfbf/copier
+RUN cd /usr/src/php/ext/pdo_odbc \
+ && phpize \
+ && ./configure --with-pdo-odbc=unixODBC,/usr > /dev/null \
+ && docker-php-ext-install pdo_odbc > /dev/null
+
 WORKDIR /code/exporter
 RUN composer create-project shadiakiki1986/db-diff
 ENTRYPOINT entry.sh \

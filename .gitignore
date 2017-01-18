@@ -4,3 +4,5 @@ exporter/vendor
 exporter/ubuntu-xenial-16.04-cloudimg-console.log
 mysql-connector-odbc-5.3.7-linux-ubuntu16.04-x86-64bit.tar.gz
 mysql-connector-odbc-5.3.7-linux-ubuntu16.04-x86-64bit/
+exporter/etc/odbc/odbc.ini
+exporter/etc/odbc/odbcinst.ini

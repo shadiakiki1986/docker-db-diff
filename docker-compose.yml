@@ -16,4 +16,7 @@ services:
     depends_on:
     - git
     environment:
-    - DBDIFF_GRAPI_HOST=http://git:8082
+    - DBDIFF_GRAPI_HOST=http://grapi:8082
+    volumes:
+    - ${PWD}/etc/odbc:/etc/odbc
+    - ${PWD}/etc/cron.d:/etc/cron.d

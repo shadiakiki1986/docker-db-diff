@@ -1,4 +1,4 @@
-0 9 * * * root php /code/exporter/bin/pdo-git export      MarketflowAcc   Marketflow..TITRE  TIT_COD
-2 9 * * * root php /code/exporter/bin/pdo-git export      MarketflowAccDB MkfFFADubai..TITRE TIT_COD
-4 9 * * * root php /code/exporter/bin/pdo-git post-commit MarketflowAcc   Marketflow..TITRE  --columns src/columns/ffa-titre.yml --format email --email s.akiki@ffaprivatebank.com
-5 9 * * * root php /code/exporter/bin/pdo-git post-commit MarketflowAccDB MkfFFADubai..TITRE --columns src/columns/ffa-titre.yml --format email --email s.akiki@ffaprivatebank.com
+0 9 * * * root php /code/exporter/db-diff/bin/pdo-git export      MarketflowAcc   Marketflow..TITRE  TIT_COD
+2 9 * * * root php /code/exporter/db-diff/bin/pdo-git export      MarketflowAccDB MkfFFADubai..TITRE TIT_COD
+4 9 * * * root php /code/exporter/db-diff/bin/pdo-git post-commit MarketflowAcc   Marketflow..TITRE  --columns src/columns/ffa-titre.yml --format email --email s.akiki@ffaprivatebank.com
+5 9 * * * root php /code/exporter/db-diff/bin/pdo-git post-commit MarketflowAccDB MkfFFADubai..TITRE --columns src/columns/ffa-titre.yml --format email --email s.akiki@ffaprivatebank.com

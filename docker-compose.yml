@@ -8,13 +8,15 @@ services:
     - "8082:8081"
     environment:
     - LOGLEVEL=info
+    volumes:
+    - /tmp/git/1161017-23323-pfc5zt/MfDbVersioned/:/tmp/git/1161017-23323-pfc5zt/MfDbVersioned/
 
   exporter:
     build:
       context: exporter
       dockerfile: Dockerfile
     depends_on:
-    - git
+    - grapi
     environment:
     - DBDIFF_GRAPI_HOST=http://grapi:8082
     volumes:

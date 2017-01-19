@@ -18,8 +18,8 @@ services:
     environment:
     - DBDIFF_GRAPI_HOST=http://grapi2:8081
     volumes:
-    - ./exporter/etc/odbc/:/code/exporter/etc/odbc/
-    - ./exporter/etc/cron.d/:/code/exporter/etc/cron.d/
+    - ./exporter/etc/odbc/:/code/exporter/etc/odbc/:ro
+    - ./exporter/etc/cron.d/:/code/exporter/etc/cron.d/:ro
 
 networks:
   default:

@@ -1,4 +1,9 @@
 #!/bin/sh
-cp /etc/odbc/odbc.ini /etc
-cp /etc/odbc/odbcinst.ini /etc
+set -e
+
+cp /code/exporter/etc/odbc/odbc.ini /etc/
+cp /code/exporter/etc/odbc/odbcinst.ini /etc/
+cp /code/exporter/etc/cron.d/exporter /etc/cron.d/
+cp /code/exporter/etc/php/php.ini /usr/local/etc/php/
+
 cd db-diff && composer update

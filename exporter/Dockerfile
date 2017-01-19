@@ -12,5 +12,11 @@ RUN cd /usr/src/php/ext/pdo_odbc \
 
 WORKDIR /code/exporter
 RUN composer create-project shadiakiki1986/db-diff
-ENTRYPOINT entry.sh \
-        && cron -f
+RUN  apt-get -qq    update \
+  && DEBIAN_FRONTEND=noninteractive \
+       apt-get -qq -y install rsyslog
+COPY . .
+ENTRYPOINT /bin/sh entry.sh \
+        && service rsyslog start \
+        && service cron start \
+        && tail -f /var/log/syslog

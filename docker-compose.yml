@@ -1,11 +1,9 @@
 version: '2'
 services:
-  grapi:
+  grapi2:
     build:
       context: grapi
       dockerfile: Dockerfile
-    ports:
-    - "8082:8081"
     environment:
     - LOGLEVEL=info
     volumes:
@@ -16,9 +14,14 @@ services:
       context: exporter
       dockerfile: Dockerfile
     depends_on:
-    - grapi
+    - grapi2
     environment:
-    - DBDIFF_GRAPI_HOST=http://grapi:8082
+    - DBDIFF_GRAPI_HOST=http://grapi2:8081
     volumes:
-    - ${PWD}/etc/odbc:/etc/odbc
-    - ${PWD}/etc/cron.d:/etc/cron.d
+    - ./exporter/etc/odbc/:/code/exporter/etc/odbc/
+    - ./exporter/etc/cron.d/:/code/exporter/etc/cron.d/
+
+networks:
+  default:
+    external:
+      name: ffamfe_default

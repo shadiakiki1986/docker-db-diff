@@ -20,6 +20,7 @@ services:
     volumes:
     - ./exporter/etc/odbc/:/code/exporter/etc/odbc/:ro
     - ./exporter/etc/cron.d/:/code/exporter/etc/cron.d/:ro
+    - ./exporter/etc/swiftmailer/:/code/exporter/etc/swiftmailer/:ro
 
 networks:
   default:

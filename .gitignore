@@ -8,4 +8,5 @@ exporter/etc/odbc/odbc.ini
 exporter/etc/odbc/odbcinst.ini
 exporter/db-diff/
 exporter/etc/php/php.ini
+exporter/etc/swiftmailer/*.yml
 

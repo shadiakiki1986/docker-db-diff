@@ -1,0 +1,3 @@
+[submodule "exporter/db-diff"]
+	path = exporter/db-diff
+	url = https://github.com/shadiakiki1986/db-diff

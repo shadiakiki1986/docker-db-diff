@@ -16,4 +16,10 @@ services:
     depends_on:
     - db
     environment:
+    # port here should be the same as below
     - DBDIFF_GRAPI_HOST=http://localhost:8082
+
+  grapi:
+    ports:
+      # using 8082 because the 8081 port on my dev server is already taken
+      - "8082:8081"

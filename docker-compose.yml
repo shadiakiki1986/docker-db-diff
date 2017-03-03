@@ -1,28 +1,23 @@
 version: '2'
 services:
-  grapi2:
+  grapi:
     build:
       context: grapi
       dockerfile: Dockerfile
     environment:
     - LOGLEVEL=info
     volumes:
-    - /tmp/git/1161017-23323-pfc5zt/MfDbVersioned/:/tmp/git/1161017-23323-pfc5zt/MfDbVersioned/
+    - /data/docker-db-diff/grapi/:/tmp/git/1161017-23323-pfc5zt/
 
   exporter:
     build:
       context: exporter
       dockerfile: Dockerfile
     depends_on:
-    - grapi2
+    - grapi
     environment:
-    - DBDIFF_GRAPI_HOST=http://grapi2:8081
+    - DBDIFF_GRAPI_HOST=http://grapi:8081
     volumes:
     - ./exporter/etc/odbc/:/code/exporter/etc/odbc/:ro
     - ./exporter/etc/cron.d/:/code/exporter/etc/cron.d/:ro
     - ./exporter/etc/swiftmailer/:/code/exporter/etc/swiftmailer/:ro
-
-networks:
-  default:
-    external:
-      name: ffamfe_default

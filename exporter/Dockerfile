@@ -14,6 +14,16 @@ RUN  apt-get -qq    update \
   && DEBIAN_FRONTEND=noninteractive \
        apt-get -qq -y install rsyslog
 
+RUN apt-get -qq update > /dev/null \
+ && DEBIAN_FRONTEND=noninteractive \
+      apt-get -qq -y install python-pip > /dev/null
+# chkcrontab
+# https://code.google.com/archive/p/chkcrontab/wikis/CheckCrontab.wiki
+#
+# Can go back to `pip install chkcrontab` once the following PR is merged
+# https://github.com/lyda/chkcrontab/pull/20
+RUN pip install git+https://github.com/shadiakiki1986/chkcrontab.git@check_permissions
+
 WORKDIR /code/exporter
 COPY . .
 ENTRYPOINT /bin/sh entry.sh \

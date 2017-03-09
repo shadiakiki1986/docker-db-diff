@@ -1,2 +1,4 @@
+DBDIFF_GRAPI_HOST=${DBDIFF_GRAPI_HOST}
+
 # logger: https://www.cyberciti.biz/tips/howto-linux-unix-write-to-syslog.html
 5 15 * * * root /bin/sh /code/exporter/run.sh 2>&1 | logger  -t "db-diff"

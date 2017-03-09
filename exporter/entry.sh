@@ -4,7 +4,7 @@ set -e
 cp /code/exporter/etc/odbc/odbc.ini /etc/
 cp /code/exporter/etc/odbc/odbcinst.ini /etc/
 
-cp /code/exporter/etc/cron.d/exporter /etc/cron.d/
+cat /code/exporter/etc/cron.d/exporter | envsubst | tee /etc/cron.d/exporter
 chmod g-w /etc/cron.d/exporter
 chkcrontab /etc/cron.d/exporter
 

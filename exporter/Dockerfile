@@ -24,6 +24,11 @@ RUN apt-get -qq update > /dev/null \
 # https://github.com/lyda/chkcrontab/pull/20
 RUN pip install git+https://github.com/shadiakiki1986/chkcrontab.git@check_permissions
 
+# envsubst for cron
+RUN  apt-get -qq    update \
+  && DEBIAN_FRONTEND=noninteractive \
+       apt-get -qq -y install gettext
+
 WORKDIR /code/exporter
 COPY . .
 ENTRYPOINT /bin/sh entry.sh \

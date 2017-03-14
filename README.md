@@ -1,4 +1,4 @@
-# ffa-db-diff
+# docker-db-diff
 Workflow using [db-diff](https://github.com/shadiakiki1986/db-diff)
 
 To save database data to git repository and display differences in email/ui

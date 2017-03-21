@@ -16,7 +16,6 @@ $PHPBIN /code/exporter/db-diff/bin/pdo-git post-commit \
   MarketflowAcc   Marketflow..TITRE  \
   --columns /code/exporter/db-diff/src/columns/ffa-titre.yml \
   --format email \
-  --email.to s.akiki@ffaprivatebank.com \
   --email.subject "* New securities diff - LB - `date +%Y-%m-%d`" \
   --email.config /code/exporter/etc/swiftmailer/ffa.yml
 
@@ -28,7 +27,6 @@ $PHPBIN /code/exporter/db-diff/bin/pdo-git post-commit \
   MarketflowAccDB MkfFFADubai..TITRE \
   --columns /code/exporter/db-diff/src/columns/ffa-titre.yml \
   --format email \
-  --email.to s.akiki@ffaprivatebank.com \
   --email.subject "* New securities diff - AE - `date +%Y-%m-%d`" \
   --email.config /code/exporter/etc/swiftmailer/ffa.yml
 

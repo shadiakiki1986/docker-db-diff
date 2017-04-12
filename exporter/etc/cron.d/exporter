@@ -1,4 +1,5 @@
 DBDIFF_GRAPI_HOST=${DBDIFF_GRAPI_HOST}
+HC_URL=${HC_URL}
 
 # logger: https://www.cyberciti.biz/tips/howto-linux-unix-write-to-syslog.html
-5 15 * * * root /bin/sh /code/exporter/run.sh 2>&1 | logger  -t "db-diff"
+5 15 * * * root (/bin/sh /code/exporter/run.sh 2>&1 | logger  -t "db-diff" ) && curl -fsS --retry 3 $HC_URL > /dev/null

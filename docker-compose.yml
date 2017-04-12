@@ -17,6 +17,8 @@ services:
     - grapi
     environment:
     - DBDIFF_GRAPI_HOST=http://grapi:8081
+    # Endpoint for https://healthchecks.io/
+    - HC_URL= https://hchk.io/123456789
     volumes:
     - ./exporter/etc/odbc/:/code/exporter/etc/odbc/:ro
     - ./exporter/etc/cron.d/:/code/exporter/etc/cron.d/:ro
